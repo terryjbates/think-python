@@ -1,0 +1,24 @@
+exercise-2.4.txt 
+
+Must use "float" form to avoid the floor division problem
+
+>>> (4.0/3.0) * (22.0/7.0) * (5**3)
+523.8095238095237
+
+
+24.95 * .60 to get actual cost  * 60 books bought +
+3.00 dollars for first + .75 * 59 for rest
+
+>>> (24.95*.60 * 60) + ( 3 + (.75*59))
+945.4499999999999
+
+
+2 miles at 8.25 minutes per mile. (15/60)
+3 miles at 7.20 minutes per mile. (12/60)
+.1 minute = 1/10 / = 6/60 = 6 seconds
+start at 6:52 AM  + 38 minutes 7:30:06 Am
+
+
+>>> (2* 8.25) + (3 * 7.20)
+38.1
+>>> 7:36PM
