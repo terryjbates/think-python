@@ -17,7 +17,7 @@ def repeat_lyrics():
     print_lyrics()
     print_lyrics()     
 
-repeat_lyrics()
+
 
 def print_lyrics():
     print "I am a lumberjack, and I'm okay."
@@ -26,7 +26,15 @@ def print_lyrics():
 def print_twice(bruce):
     print bruce
     print bruce
+    cat(bruce)
 
+def cat_twice(part1, part2):
+    cat = part1 + part2
+    print_twice(cat)
+
+repeat_lyrics()
+
+#print_twice('Bing tiddle')
 # def main():
 #     #repeat_lyrics()
 # 
