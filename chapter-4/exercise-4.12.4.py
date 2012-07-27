@@ -3,6 +3,9 @@ from swampy.TurtleWorld import *
 from polygon import circle, arc
 
 def post(t,n):
+    """Define a 'post' as a vertical line with a variable position.
+    Use the parameter to function to determine its offset position 
+    from flush left."""
     pu(t)
     fd(t,n)
     pd(t)
@@ -15,6 +18,9 @@ def post(t,n):
     pd(t)
 
 def beam(t,n):
+    """Define a 'beam' as a horizontal line with a variable position.
+    Use the parameter to function to determine its offset position 
+    from flush bottom."""    
     pu(t)
     lt(t,90)
     fd(t,n)
@@ -30,11 +36,13 @@ def beam(t,n):
 
 
 def draw_h(t):
+    """Function to draw a 't' character. """
     post(t,0)
     beam(t,20)
     post(t,40)
 
 def draw_e(t):
+    """Function to draw a 'e' character. """
     post(t,0)
     n = 40
     while n >= 0:
@@ -42,10 +50,12 @@ def draw_e(t):
         n = n-20
 
 def draw_l(t):
+    """Function to draw a 'l' character. """
     post(t,0)
     beam(t,0)
 
 def draw_o(t):
+    """Function to draw a 'o' character. """
     fd(t,20)
     circle(t,20)
     pu(t)
