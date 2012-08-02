@@ -9,12 +9,25 @@ Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights rese
 
 import sys
 import os
+import math
+
+def check_fermat(a,b,c,n):
+    '''This function does the actual checking of Fermat's last theorem.
+    There should be no such integers such that 
+    a^n + b^n = c^n 
+    for n values greater than 2.
+    ''''
+    left_side = pow(a,n) + pow(b,n)
+    right_side = pow(c,n)
+    if (n > 2) and (left_side == right_side):
+        print "Holy Smokes, Fermat was wrong!"
+    else:
+        print "No, that doesn't work."
 
 
 def prompt_user():
     '''Prompt the user to input the required values
     for Fermat's last theorem
-    a^n + b^n = c^n
     Use a for loop to avoid repeated prompts
     '''
     # create general prompt
@@ -26,11 +39,11 @@ def prompt_user():
         float_input = float(my_input)      # convert the entered value to float
         exec ("%s=%f" % (value, float_input))
 
-def check_fermat():
-    prompt_user()
+    # call check_fermat function
+    check_fermat(a,b,c,n)
     
 def main():
-    check_fermat()
+    prompt_user()
 
 
 if __name__ == '__main__':
