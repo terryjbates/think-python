@@ -16,7 +16,7 @@ def check_fermat(a,b,c,n):
     There should be no such integers such that 
     a^n + b^n = c^n 
     for n values greater than 2.
-    ''''
+    '''
     left_side = pow(a,n) + pow(b,n)
     right_side = pow(c,n)
     if (n > 2) and (left_side == right_side):
