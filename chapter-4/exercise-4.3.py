@@ -10,11 +10,25 @@ Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights rese
 
 from swampy.TurtleWorld import *
 import math
+from polygon import circle, arc
 
 def square(t,length):
     for i in range(4):
         fd(t,length)
         lt(t)
+
+def polyline(t, n, length, angle):
+    """Draws n line segments.
+
+    t: Turtle object
+    n: number of line segments
+    length: length of each segment
+    angle: degrees between segments
+    """
+    for i in range(n):
+        fd(t, length)
+        lt(t, angle)
+
 
 def polygon(t, n, length, angle):
     for i in range(n): 
@@ -34,7 +48,7 @@ def arc(t, r, angle):
     polyline(t, n, step_length, step_angle)
     
 def circle(t,radius):
-    arc(t, r, 360)
+    arc(t, radius, 360   )
 
 
 def main():
