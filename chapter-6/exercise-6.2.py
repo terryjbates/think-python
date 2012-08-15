@@ -15,9 +15,12 @@ import sys
 import os
 
 
-def hypotenuse():
-    pass
-
+def hypotenuse(x,y):
+    # hypotenuse  x**2 + y**2 = z**2
+    legs_squared = x**2 + y**2
+    # so, compute squares of arguments, add together    
+    # then take square root of them, return that value
+    return hypotenuse_value
 
 if __name__ == '__main__':
     hypotenuse(2,3)
