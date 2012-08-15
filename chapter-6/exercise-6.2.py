@@ -13,15 +13,19 @@ Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights rese
 
 import sys
 import os
-
+import math
 
 def hypotenuse(x,y):
     # hypotenuse  x**2 + y**2 = z**2
-    legs_squared = x**2 + y**2
     # so, compute squares of arguments, add together    
+    legs_squared = x**2 + y**2
+
     # then take square root of them, return that value
+    # to do that we need the math module
+    hypotenuse_value = math.sqrt(legs_squared)
+    print hypotenuse_value
     return hypotenuse_value
 
 if __name__ == '__main__':
-    hypotenuse(2,3)
+    hypotenuse(3,4)
 
