@@ -1,0 +1,25 @@
+exercise-8.11.txt
+
+Created by Terry Bates on 2012-09-08.
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
+
+* any_lowercase1
+
+This seems to work as advertised, but is brittle, since it will choke on whitespace chars, such as tabs, and return false.
+
+* any_lowercase2
+
+This will always return true, since it will only work with 'c' as specified in the if statement.
+
+* any_lowercase3
+
+This will return the last character in lowercase, since the for loop will cycle through all of them, but only return the value once complete.
+
+* any_lowercase4
+
+This will return either 'False' or 'True' if the c is a lowercase.
+
+* any_lowercase5
+
+This will immediately return False if any character is lowercase, True if it is all uppercase.
+
