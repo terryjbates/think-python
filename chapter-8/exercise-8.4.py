@@ -18,6 +18,7 @@ def find(word,letter,start):
         index = 0
     while index < len(word):
         if word[index] == letter:
+            print "our index : ", index
             return index
         index = index + 1
     return -1
@@ -25,5 +26,9 @@ def find(word,letter,start):
 
 
 if __name__ == '__main__':
-    print find('foo fighters rock', 'i', 6)
-    print 'foo fighters rock'[5]
+    my_string ='foo fighters rock'
+    print my_string
+    print my_string[0]
+    print "we found 'o' at ", find(my_string, 'o', 6)
+    print "we found 'f' at", find(my_string, 'f', 0)
+    print "we found 'h' at", find(my_string, 'h', 0)
