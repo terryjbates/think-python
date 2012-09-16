@@ -9,20 +9,24 @@ Created by Terry Bates on 2012-09-16.
 Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
 """
 
-import sys
-import os
+import swampy
+
+# Neat trick learned from 
+from os import path
+#swampy_dir = path.join(path.dirname(__file__), 'swampy')
+swampy_dir = "/Library/Python/2.7/site-packages/swampy-2.1.1-py2.7.egg/swampy/"
+
 
 def avoids(word, avoid_list):
     # iterate over the letters in word
     for char in word:
         if char in avoid_list:
+            # if the word has a char in avoid_list, return False
             return False
+    # Otherwise, return true, since it "avoids"        
     return True
 
-    # if you find a letter in word, that is in our list to avoid
-    # return False immediately
-    # if you made it through word unscathed
-    # return true
+
     
 def chars_to_avoid():
     my_string = raw_input("Please enter a list of letters to avoid: ").strip()
@@ -42,6 +46,29 @@ def main():
     list_to_avoid = chars_to_avoid()
     print "You wish to avoid", list_to_avoid
     print avoids(my_word, list_to_avoid)
+    
+    # Now, we try running through words.txt with the avoid list
+    #create a variable called 'words_txt', make it have path of words.txt
+    words_txt = swampy_dir + '/words.txt'
+    # open a filehandle
+    f = open(words_txt)
+    # Excluding the least == Including the most
+    avoided = 0
+    non_avoided = 0
+    
+    for line in f:
+        line = line.strip()        
+        # use avoids with our previously set list_to_avoid
+        if avoids(line, list_to_avoid):
+            avoided = avoided + 1
+        else:
+            non_avoided = non_avoided + 1
+    total = avoided + non_avoided
+
+    # Suspicion that the sequence that excludes the least is 
+    # vwxqz
+    print "Percentage avoided: ",  (float(avoided) / total) * 100
+        
 if __name__ == '__main__':
     main()
 
