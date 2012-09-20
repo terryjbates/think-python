@@ -8,11 +8,14 @@ Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights rese
 """
 
 def is_palindrome(word):
-    if word == word[::-1]:
-        return True
-    else:
-        return False
+    # if word == word[::-1]:
+    #     return True
+    # else:
+    #     return False
+    return word == word[::-1]
+
         
 if __name__ == '__main__':
     print is_palindrome('bob')
     print is_palindrome('alpapla')
+    print is_palindrome('shlomo')
