@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-9.3.py
+exercise-9.4.py
 
 Write program with a function that will accept user-entered list of forbidden letters and a word, and return True if the word doesn't use any of forbidden letters, and False if it does.
 
