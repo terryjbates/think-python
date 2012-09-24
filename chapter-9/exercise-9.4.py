@@ -20,6 +20,8 @@ swampy_dir = "/Library/Python/2.7/site-packages/swampy-2.1.1-py2.7.egg/swampy/"
 def uses_only(word, uses_only_list):
     # iterate over the letters in word
     for letter in word:
+        # we want to be case insensitive.
+        letter = letter.lower()
         if letter not in uses_only_list and letter != " ":
             print "Letter %s  is not in %s " % (letter, uses_only_list)
             return False
