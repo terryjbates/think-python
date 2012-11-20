@@ -27,7 +27,8 @@ def is_sorted(my_list):
 def main():
     test_list = [1, 2, 2, 3, 4]
     print is_sorted(test_list)
-
+    bad_list = [4, 2, 2, 3, 4]
+    print is_sorted(bad_list)
 
 if __name__ == '__main__':
     main()
