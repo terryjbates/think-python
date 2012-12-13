@@ -35,7 +35,7 @@ def bisect(search_term, my_list ):
 def main():
     test_list = "abba bobby crooklyn david edward franklin giovanni".split()
     print bisect('foo', test_list)
-
+    print bisect('david', test_list)
 if __name__ == '__main__':
     main()
 
