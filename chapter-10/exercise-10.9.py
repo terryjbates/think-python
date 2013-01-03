@@ -64,13 +64,16 @@ def main():
     #print total_word_list
     for word in total_word_list:
         reversed_word = reverse_word(word)
-        try:
-            if bisect(reversed_word, total_word_list):
-                print 'word: ', word
-                print 'reversed word: ', reversed_word
-        except:
-            pass
-        
+        # try:
+        #     if bisect(reversed_word, total_word_list):
+        #         print 'word: ', word
+        #         print 'reversed word: ', reversed_word
+        # except:
+        #     pass
+        if bisect(reversed_word, total_word_list):
+            print 'word: ', word
+            print 'reversed word: ', reversed_word
+
 
 if __name__ == '__main__':
     main()
