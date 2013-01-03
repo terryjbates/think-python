@@ -57,19 +57,17 @@ def shuffle_word(plain_word, search_word):
     while True:
         # If odd, append corresponding element from first word
         if is_even_num(index):
-            print plain_word_list[index]
-            print index
             shuffle_word_list.append(plain_word_list[index])
+
         # Otherwise, append the 'even' element from the other list    
         else:
-            print search_word_list[index]
-            print index
-            shuffle_word_list.append(search_word_list[index])    
+            shuffle_word_list.append(search_word_list[index])
+
         # Increment the index    
-        index += 1
+        index += 1   
     # Print out the garbage we have created.    
-    print ''.join(word_list)
-    return ''.join(word_list)
+    print ''.join(shuffle_word_list)
+    return ''.join(shuffle_word_list)
 
 def interlock(word, total_word_list):
     for search_word in total_word_list:
