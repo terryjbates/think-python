@@ -14,7 +14,7 @@ def histogram(s):
     for c in s:
         dict_value = d.get(c,0)
         d[c] = dict_value + 1 
-    print d
+    return d
 
 def main():
     histogram('h')
