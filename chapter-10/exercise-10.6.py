@@ -3,40 +3,40 @@
 """
 exercise-10.6.py
 
-Write a function called 'remove_duplicates.' Take a list and return a new list with only the unique elements from the original. (Not necessarily in same order).
+Write a function called 'remove_duplicates.' Takes a list and returns a new list with only the unique elements from the original 
 
-Created by Terry Bates on 2012-11-25.
+Created by Terry Bates on 2012-11-20.
 Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
 """
 
-import sys
-import os
+import random
 
 def remove_duplicates(input_list):
     '''For each item in the list see if there is a duplicate.'''
     # create empty dictionary to store key/value pairs
-    check_duplicate_dict = {}
-    dups_removed_list = []
+    unique_item_dict = {}
+    removed_duplicates_list = []
     for item in input_list:
-        if check_duplicate_dict.has_key(item):
+        # if already existing, pass
+        if unique_item_dict.has_key(item):
             pass
-            #print "dup item is: ", item
-            #return True
+        # otherwise, add to dict
         else:
-            check_duplicate_dict[item] = 1
-            dups_removed_list.append(item)    
-    return dups_removed_list
+            unique_item_dict[item] = 1
 
-    
+    # create new list based on dict key values
+    for dict_item in unique_item_dict.iterkeys():
+        removed_duplicates_list.append(dict_item)
+
+    return removed_duplicates_list
+
 
 def main():
-    list_1 = [1, 2, 3]
-    list_2 = [1, 1, 2, 3]
-    print "original list_1", list_1
-    print "original list_2", list_2
-    print
-    print "dup removed list 1:", remove_duplicates(list_1)    
-    print "dup removed list 2:", remove_duplicates(list_2)
+    # We will be running 100 times, so start our count
+    # of instances where a sample has duplicates to 0
+    dup_list = "first second first first third".split()
+    new_list = remove_duplicates(dup_list)
+    print "%s %s" % (dup_list, new_list)
 
 if __name__ == '__main__':
     main()
