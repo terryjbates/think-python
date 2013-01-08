@@ -35,16 +35,10 @@ def bisect(search_term, my_list ):
 
 def main():
     test_list = "abba bobby crooklyn david edward franklin giovanni".split()
-<<<<<<< HEAD
-    #print bisect('foo', test_list)
     time_start = time.time()
     print bisect('lollipop', test_list)
     time_end = time.time()
     print "time diff is ", time_end - time_start
-=======
-    print bisect('foo', test_list)
-    print bisect('david', test_list)
->>>>>>> 090c7ec7874dcd65b074871f61b34ddb7eb92946
 if __name__ == '__main__':
     main()
 
