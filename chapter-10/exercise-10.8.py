@@ -12,6 +12,7 @@ Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights rese
 
 import sys
 import os
+import time
 
 def bisect(search_term, my_list ):
     
@@ -34,8 +35,11 @@ def bisect(search_term, my_list ):
 
 def main():
     test_list = "abba bobby crooklyn david edward franklin giovanni".split()
-    print bisect('foo', test_list)
-
+    #print bisect('foo', test_list)
+    time_start = time.time()
+    print bisect('lollipop', test_list)
+    time_end = time.time()
+    print "time diff is ", time_end - time_start
 if __name__ == '__main__':
     main()
 
