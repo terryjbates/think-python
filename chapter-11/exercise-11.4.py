@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-11.3.py
+exercise-11.4.py
 
 Write a more concise version of histogram function.
 

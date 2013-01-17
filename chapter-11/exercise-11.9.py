@@ -17,6 +17,7 @@ word_list_file = open(pickle_file,'rb')
 word_list = cPickle.load(word_list_file)
 rot_pairs_dict = dict()
 
+
 def rotate_word(word, rotate_num):
     # a = 97, z = 122, A = 65, Z = 90
     new_word = ''
@@ -45,6 +46,7 @@ def rotate_word(word, rotate_num):
         else:
             new_word = new_word + char
     return new_word
+<<<<<<< HEAD
     
 def bisect(search_term, my_list):
     lo = 0
