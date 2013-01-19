@@ -14,12 +14,11 @@ import os
 
 
 def main():
-	print 17
-	x=5
-	print x
-	print x+1
+    print 17
+    x = 5
+    print x
+    print x + 1
 
 
 if __name__ == '__main__':
-	main()
-
+    main()
