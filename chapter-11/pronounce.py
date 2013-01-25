@@ -6,7 +6,7 @@ Allen B. Downey
 
 """
 
-def read_dictionary(filename='c06d'):
+def read_dictionary(filename='cmudict.0.6d'):
     """read (filename) and build a dictionary that maps from
     each word to a string that describes its primary pronunciation.
 
