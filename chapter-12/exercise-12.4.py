@@ -10,8 +10,13 @@ Copyright (c) 2013 http://the-awesome-python-blog.posterous.com. All rights rese
 import sys
 import os
 import collections
-word_list = "food doof ape pea pole lope".split()
 
+import cPickle
+
+#word_list = "food doof ape pea pole lope".split()
+
+word_list_file = open('/Users/tbates/python/Think-Python/think-python/words_list', 'rb')
+word_list = cPickle.load(word_list_file)
 
 def main():
     total_words_dict = dict()
@@ -32,7 +37,8 @@ def main():
         
     # Pretty print the anagrams
     for anagram_list in total_words_dict.values():
-        print anagram_list
+        if len(anagram_list) > 1:
+            print anagram_list
 if __name__ == '__main__':
     main()
 
