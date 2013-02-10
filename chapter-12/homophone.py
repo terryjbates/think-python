@@ -4,23 +4,31 @@ Solution to the homophone Car Talk Puzzler
 Think Python
 Allen B. Downey
 
+This program will find the largest reducible words, where, if you remove letters from them, that they will still form valid words. Run time : ~ 448.11 seconds
+
 """
 
+import cPickle
 from pronounce import read_dictionary
 phonetic = read_dictionary()
 
-def make_word_list():
-    """read the words in words.txt and return a dictionary
-    that contains the words as keys"""
-    d = dict()
-    fin = open('words.txt')
-    for line in fin:
-        word = line.strip().lower()
-        d[word] = word
+# def make_word_list():
+#     """read the words in words.txt and return a dictionary
+#     that contains the words as keys"""
+#     d = dict()
+#     fin = open('words.txt')
+#     for line in fin:
+#         word = line.strip().lower()
+#         d[word] = word
+# 
+#     return d
+# 
+# wordlist = make_word_list()
+# read in our word list from pickled object
+word_list_file = open('/Users/tbates/python/Think-Python/think-python/words_list', 'rb')
+wordlist = cPickle.load(word_list_file)
 
-    return d
 
-wordlist = make_word_list()
 
 def homophones(a, b):
     """return True if words (a) and (b) can be pronounced the
