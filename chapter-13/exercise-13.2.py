@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-13.1.py
+exercise-13.2.py
 
-Script to read file, break line into words, strip whitespace and punctuation from the words, convert to lowercase.
+Script to read in Gutenburg books, count up total amount of words and the amount of time each word was used. 
 
 
 Created by Terry Bates on 2012-07-13.
@@ -65,5 +65,6 @@ def main():
     #print book_word_dict
     print "Total word count", total_word_count
     print "Number of unique words", len(sorted_word_dict)
+
 if __name__ == '__main__':
     main()
