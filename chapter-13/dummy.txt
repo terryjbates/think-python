@@ -1,0 +1,1 @@
+This uses the reduce function to run replace on the main string, using the values in verbs as the ones to replace. The final argument to reduce is the string itself, which will contain the result of the replacement on each iteration (and will be the 'normal' string at the outset).this this this
