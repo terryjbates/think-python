@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-12.1.py
+exercise-13.1.py
 
-A script to create a function called "sumall" that will take any number of arguments and return their sum.
+Script to read file, break line into words, strip whitespace and punctuation from the words, convert to lowercase.
 
 
 Created by Terry Bates on 2012-07-13.
