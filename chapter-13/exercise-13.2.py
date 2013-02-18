@@ -44,6 +44,7 @@ def main():
     # Use a positional argument
     parser.add_argument("source_file", help="The text file containing the source and target urls.")
     parser.add_argument("data_struct", help="Select 'list' or 'dict to use in checking for words.")
+    parser.add_argument("-c","--count", help="Print out specified number of most frequently used words", type=int)
     # Obtain our positional arguments
     args = parser.parse_args()
     # Set the filename to first positional argument.
@@ -85,10 +86,13 @@ def main():
     # so that the largest counts appear first.
     sorted_word_dict =  collections.OrderedDict(sorted(book_word_dict.items(), reverse=True, key=lambda t: t[1]))
 
-    # Print out sorted directory, keys and values
-    for key in sorted_word_dict:
-        pass
-
+    if args.count:
+        count = 0
+        # Print out sorted directory, keys and values
+        for key, value in sorted_word_dict.items():
+            if count < args.count:
+                print "%s: %s" % (key,value)
+                count += 1
     # Output our total word count, and unique word count.
     print "Total word count", total_word_count
     print "Number of unique words", len(sorted_word_dict)
