@@ -19,7 +19,7 @@ import cPickle
 # Declare global total word count.
 total_word_count = 0
 
-def count_word(word, complete_word_set, book_word_dict):
+def count_word(word, complete_word_set, book_word_dict, unknown_word_dict):
     global total_word_count
     
     # If we are using a dictionary
@@ -30,7 +30,8 @@ def count_word(word, complete_word_set, book_word_dict):
                 book_word_dict[word] = book_word_dict.setdefault(word,0) + 1
                 total_word_count += 1
         except:
-            pass        
+            unknown_word_dict[word] = unknown_word_dict.setdefault(word,0) + 1
+            #pass        
     # If we are using a list.
     elif str(type(complete_word_set)) == "<type 'list'>":
         # Use 'in' to see if word is present in valid word list
@@ -68,7 +69,7 @@ def main():
     f = open(args.source_file,'r')
     # Create dictionary to store word-specific counts
     book_word_dict = dict()
-    
+    unknown_word_dict = dict()
     # We use for loop in order to process each line.
     # Since 'string.punctuation' is literally a string,
     # We use a loop to replace any matching characters with nothing.
@@ -79,20 +80,27 @@ def main():
         # we make all words lowercase, strip whitespace, split on spaces
         # all in one fell swoop.
         for word in line.lower().strip().split():
-            count_word(word, complete_word_set, book_word_dict)
+            count_word(word, complete_word_set, book_word_dict, unknown_word_dict)
             
     # Generate a sorted directory via 'collections' module
     # Sort it based on the count values, and reverse it,
     # so that the largest counts appear first.
     sorted_word_dict =  collections.OrderedDict(sorted(book_word_dict.items(), reverse=True, key=lambda t: t[1]))
+    sorted_unknown_word_dict =  collections.OrderedDict(sorted(unknown_word_dict.items(), reverse=True, key=lambda t: t[1]))
 
     if args.count:
         count = 0
         # Print out sorted directory, keys and values
         for key, value in sorted_word_dict.items():
             if count < args.count:
+                #print "%s: %s" % (key,value)
+                count += 1
+
+        for key, value in sorted_unknown_word_dict.items():
+            if count < args.count:
                 print "%s: %s" % (key,value)
                 count += 1
+        
     # Output our total word count, and unique word count.
     print "Total word count", total_word_count
     print "Number of unique words", len(sorted_word_dict)
