@@ -1,8 +1,8 @@
 exercise-8.11.txt
 
 Created by Terry Bates on 2012-09-08.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved.
 * any_lowercase1
 
 This seems to work as advertised, but is brittle, since it will choke on whitespace chars, such as tabs, and return false.

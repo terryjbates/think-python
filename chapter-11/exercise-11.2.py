@@ -6,8 +6,8 @@ exercise-11.2.py
 Write a more concise version of histogram function.
 
 Created by Terry Bates on 2012-10-31.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 def histogram(s):
     d = dict()

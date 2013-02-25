@@ -8,8 +8,8 @@ First, and likely last, commit of Exercise 6.7. Create an 'is_power' function su
 
 
 Created by Terry Bates on 2012-08-16.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import sys
 import os

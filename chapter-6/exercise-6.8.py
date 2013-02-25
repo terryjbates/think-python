@@ -6,8 +6,8 @@ exercise-6.8.py
 Greatest commond divisor with Euclid's algorithm. PITA to realize that we must return the function vaule, not simply invoke the gcd function via recursion.
 
 Created by Terry Bates on 2012-08-19.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 
 def gcd(a,b):

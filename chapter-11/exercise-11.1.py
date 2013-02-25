@@ -6,8 +6,8 @@ exercise-11.1.py
 Create a dictionary made of words from the swampy module. Make words the keys, the values can be anything. 
 
 Created by Terry Bates on 2012-10-31.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 import random
 import time
 

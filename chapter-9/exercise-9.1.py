@@ -6,8 +6,8 @@ exercise-9.1.py
 Program to read in the swampy module's 'words.txt' and only print words that are greater than 20 chars.
 
 Created by Terry Bates on 2012-09-15.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import swampy
 

@@ -6,8 +6,8 @@ exercise-9.2.py
 Program to print out entries in words.txt that have no 'e' character
 
 Created by Terry Bates on 2012-09-15.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import swampy
 

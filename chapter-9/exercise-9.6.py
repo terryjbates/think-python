@@ -6,8 +6,8 @@ exercise-9.6.py
 Write program with a function that will implement 'is_abecedarian' function. Return True if the letters appear in alphabetical order, and False if they do not.
 
 Created by Terry Bates on 2012-09-16.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved.
 We found 596 abecedarian words.
 """
 

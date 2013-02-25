@@ -6,8 +6,8 @@ exercise-10-3.py
 Write a function called 'is_sorted'. List as parameter. Return 'True' if elements are sorted, 'False' otherwise. You can use "<,> operates"
 
 Created by Terry Bates on 2012-11-19.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 
 def is_sorted(my_list):

@@ -7,8 +7,8 @@ Write program with a function that will find a word with three consecutive lette
 
 
 Created by Terry Bates on 2012-09-16.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved.
 
 Son of a gun:
 

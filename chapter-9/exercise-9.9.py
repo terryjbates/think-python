@@ -11,8 +11,8 @@ Person A : 15  Person B : 51
 
 
 Created by Terry Bates on 2012-10-01.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import sys
 import os

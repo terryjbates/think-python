@@ -8,8 +8,8 @@ Write a function function called "chop" that takes a list and modifies it, remov
 Write a function called middle that takes a list and returns a new list that contains all but the first and last elements.
 
 Created by Terry Bates on 2012-11-19.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 def chop(list_to_chop):
     # remove the leading element

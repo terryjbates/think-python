@@ -6,8 +6,8 @@ exercise-3.5.py
 Create a script to draw a grid as shown on page 34 of textbook "Python for Software Design"
 
 Created by Terry Bates on 2012-07-15.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 def print_twice(my_string):
     print my_string

@@ -6,8 +6,8 @@ exercise-10.4.py
 Write a function 'is_anagram' that takes two strings and returns true if they are anagrams
 
 Created by Terry Bates on 2012-11-19.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import sys
 import os

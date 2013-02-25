@@ -6,8 +6,8 @@ exercise-9.3.py
 Write program with a function that will accept user-entered list of forbidden letters and a word, and return True if the word doesn't use any of forbidden letters, and False if it does.
 
 Created by Terry Bates on 2012-09-16.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import swampy
 

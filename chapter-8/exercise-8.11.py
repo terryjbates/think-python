@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-execrise-8.8.py
+exercise-8.11.py
 
 Created by Terry Bates on 2012-09-08.
 Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.

@@ -4,8 +4,8 @@
 exercise-7.4.py
 
 Created by Terry Bates on 2012-08-29.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 import sys
 import os

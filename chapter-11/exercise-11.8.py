@@ -1,27 +1,30 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-10.5.py
+exercise-11.8.py
 
-Birthday Paradox program. If there are 23 students in a class, what is the probability that any two of them share the same birthday
-
-Created by Terry Bates on 2012-11-20.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
-All rights reserved."""
+Created by Terry Bates on 2013-01-11.
+Copyright (c) 2013 http://the-awesome-python-blog.posterous.com. All rights reserved.
+"""
 
 import random
 
 def has_duplicates(input_list):
     '''For each item in the list see if there is a duplicate.'''
     # create empty dictionary to store key/value pairs
+    def invert_dict(d):
+        inv = dict()
+        for key in d:
+            val = d[key]
+            inv.setdefault(val,[]).append(key)
+        return inv
+            
     check_duplicate_dict = {}
     for item in input_list:
+        check_duplicate_dict.setdefault(item, []).append(1)
         if check_duplicate_dict.has_key(item):
             print "dup item is: ", item
             return True
-        else:
-            check_duplicate_dict[item] = 1
-                
     return False
 
 def main():

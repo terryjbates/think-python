@@ -6,8 +6,8 @@ exercise-9.5.py
 Write program with a function that will accept user-entered list of required letters and a word, and return True if the word uses all of the , and False if it does not.
 
 Created by Terry Bates on 2012-09-16.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved.
 We found 598 words with 'aeiou' and 42 with 'aeiouy'
 """
 

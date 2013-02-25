@@ -7,8 +7,8 @@ Create a function that will take a list [1,2,3]
 and return a list such that i = i-1 + 1 so:
 [1,2,3] --> [1, 3, 6]
 Created by Terry Bates on 2012-10-31.
-Copyright (c) 2012 http://the-awesome-python-blog.posterous.com. All rights reserved.
-"""
+Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
+All rights reserved."""
 
 def cum_sum(start_list):
     my_sum = 0
