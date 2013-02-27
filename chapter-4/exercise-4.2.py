@@ -78,91 +78,21 @@ def circle(t, r):
     """
     arc(t, r, 360)
 
+
 def flower(t, radius, angle):
     """Draw a flower, use number of petals"""
 
     # for i in range( int( 720 / angle )):
-    for i in range( int( 720 / angle )):    
+    for i in range(int(720 / angle)):
         # rt(t, angle)
-        rt(t,90)
+        rt(t, 90)
         arc(t, radius, angle)
         lt(t, 180 - angle)
         arc(t, radius, angle)
 
-        # A gilded circle
-        # arc(t, radius, angle)
-        # lt(t, 90 - angle)
-        # arc(t, radius, angle)
- 
-
-
-        # shuriken again
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # rt(t, 180)
-        # arc(t, radius, angle)
-
-        # Pretty woven circle
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # rt(t, 360 - angle)
-        # arc(t, radius, angle)
-
-
-        # circle with chunks
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # rt(t, 180 + angle)
-        # arc(t, radius, angle)
-
-        # Nice pattern
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # rt(t, 180 - angle)
-        # arc(t, radius, angle)
-
-
-        #rt (t, 90 - angle)
-
-        # this is unintentionally beautiful
-        # lt(t, 360 - angle)        
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # rt (t, 90 - angle)
-        # lt(t, 360 - angle)        
-        # arc(t, radius, angle)
-
-        
-        # A simple spiral
-        # lt(t, 720 - angle)
-        # arc(t, radius, angle)
-        # lt(t, 360 - angle)        
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-
-
-        #  This set of code makes a ninja star
-        # arc(t, radius, angle)
-        # lt(t, 360 - angle)        
-        # arc(t, radius, angle)
-        # lt(t, 180 - angle)
-        # arc(t, radius, angle)
-        # lt(t , 90 - angle)
-
-
-# the following condition checks whether we are
-# running as a script, in which case run the test code,
-# or being imported, in which case don't.
 
 if __name__ == '__main__':
-    world = TurtleWorld()    
-
+    world = TurtleWorld()
     bob = Turtle()
     bob.delay = 0.001
 
