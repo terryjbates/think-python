@@ -17,6 +17,7 @@ except ImportError:
 from polygon import *
 import math
 
+
 def draw_slice(t, r, slice_angle):
     """Draws a slice.
 
@@ -30,17 +31,17 @@ def draw_slice(t, r, slice_angle):
     # c = (360/n) / 2 or half the angle of "entire" slice
     half_edge = math.sin(slice_angle/2) * r
     edge = 2 * half_edge
-    turn_angle = abs(180 - (slice_angle/2) - 90) 
+    turn_angle = abs(180 - (slice_angle/2) - 90)
 
-    fd(t,r)
-    lt(t,turn_angle)
+    fd(t, r)
+    lt(t, turn_angle)
     fd(t, edge)
-    lt(t,turn_angle)
-    fd(t,r)
+    lt(t, turn_angle)
+    fd(t, r)
         # fd(t, r)
         # lt(t, (turn_angle)
 
-    
+
 def pie(t, s, r):
     """Draws a pie with n petals.
 
@@ -49,7 +50,7 @@ def pie(t, s, r):
     r: radius of the arcs
     """
     slice_angle = 360.0 / s
-    draw_slice( t, r, slice_angle )
+    draw_slice(t, r, slice_angle)
     #lt(t, slice_angle )
 
 
@@ -69,16 +70,11 @@ bob.delay = 0.01
 # draw a sequence of three pies, as shown in the book.
 move(bob, -100)
 pie(bob, 5, 10.0)
-# 
 # move(bob, 100)
 # pie(bob, 6, 60.0)
-# 
 # move(bob, 100)
 # pie(bob, 7, 60.0)
-
 die(bob)
-
 # dump the contents of the campus to the file canvas.eps
 world.canvas.dump()
-
 wait_for_user()
