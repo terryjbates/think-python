@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+
+
 """This module contains code from
 Think Python by Allen B. Downey
 http://thinkpython.com
@@ -32,14 +35,11 @@ def draw_slice(t, r, slice_angle):
     half_edge = math.sin(slice_angle/2) * r
     edge = 2 * half_edge
     turn_angle = abs(180 - (slice_angle/2) - 90)
-
     fd(t, r)
     lt(t, turn_angle)
     fd(t, edge)
     lt(t, turn_angle)
     fd(t, r)
-        # fd(t, r)
-        # lt(t, (turn_angle)
 
 
 def pie(t, s, r):
@@ -70,10 +70,6 @@ bob.delay = 0.01
 # draw a sequence of three pies, as shown in the book.
 move(bob, -100)
 pie(bob, 5, 10.0)
-# move(bob, 100)
-# pie(bob, 6, 60.0)
-# move(bob, 100)
-# pie(bob, 7, 60.0)
 die(bob)
 # dump the contents of the campus to the file canvas.eps
 world.canvas.dump()
