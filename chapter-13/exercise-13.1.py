@@ -3,7 +3,8 @@
 """
 exercise-13.1.py
 
-Script to read file, break line into words, strip whitespace and punctuation from the words, convert to lowercase.
+Script to read file, break line into words, strip whitespace and punctuation
+from the words, convert to lowercase.
 
 
 Created by Terry Bates on 2012-07-13.
