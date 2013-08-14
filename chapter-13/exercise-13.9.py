@@ -12,7 +12,23 @@ import os
 import argparse
 import string
 import re
+import math
 
+def print_points_to_file(points_list):
+    try:
+        output_file = open('/tmp/ex-13.tsv', 'w')
+    except:
+        print "Cannot open output file"
+        sys.exit()
+
+    for word, x, y in points_list:
+        x += 1
+        y += 1
+        x = math.log10(x)
+        y = math.log10(y)
+        
+        print >> output_file, "%s\t%s\t%s" % (word, x, y)
+    output_file.close()
 
 def calc_y_val(count_word_tuple, mod=1):
     # Get each portion of tuple
@@ -39,6 +55,7 @@ def sort_word_dict(word_dict):
 def strip_word_punc(word):
     return word.translate(string.maketrans("",""), string.punctuation)
 
+
 def gen_rank(input_file):
     '''Generate Zipf details given a specified input file.'''
     word_count_d = dict()
@@ -56,8 +73,8 @@ def gen_rank(input_file):
                     # See if key already exists, if not set to 0.
                     # In either case, increment the value by 1.
                     word_count_d[word] = word_count_d.get(word, 0) + 1
-                    print word
-                    print word_count_d[word]
+                    # print word
+                    # print word_count_d[word]
                     #print "word: %s word_count_d[word]" % (word, word_count_d[word])
     except:
         print "Problem accessing file"
@@ -81,15 +98,26 @@ def gen_rank(input_file):
 
     # Estimate equation valuse using first and last elements
     first_point = word_freq_points[0]
+    second_point = word_freq_points[1]
+    third_point = word_freq_points[1]    
     last_point =  word_freq_points[-1]
     
     b = first_point[2]
     m = -float(first_point[2]/last_point[1])
     
+    # Figure out sum of all words
+    total_word_count = sum([y for word, x, y in word_freq_points])
+    print "Total word count", total_word_count
+    
     # Print out the slope and y intercept
     print "first_point: %s last point: %s" % (first_point, last_point)
+    print "first_point percentage: %s " % ((first_point[2] / total_word_count) * 100)
+    print "second_point percentage: %s " % ((second_point[2] / total_word_count) * 100)
+    print "third_point percentage: %s " % ((third_point[2] / total_word_count) * 100)
+
     print "slope: %s y-intercept: %s" % (m, b) 
     
+    print_points_to_file(word_freq_points)
 
 if __name__ == '__main__':
     # Create argparse object
