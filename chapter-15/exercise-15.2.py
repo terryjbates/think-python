@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-exercise-<chap>.<num>.py
+exercise-15.2.py
 
 Created by Terry Bates on 2014-02-19.
 Copyright (c) 2014 http://the-awesome-python-blog.posterous.com.
