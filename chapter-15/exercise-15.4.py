@@ -30,13 +30,14 @@ def create_canvas(world, w, h, my_background):
     
 #def draw_rectangle(canvas, rectangle):
     # 
-def create_rectangle(height, width):
+def create_rectangle(height, width, color):
     my_rect = Rectangle()
     my_rect.width = height
     my_rect.height = width
     my_rect.corner = Point()
     my_rect.corner.x = 0.0
     my_rect.corner.y = 0.0
+    my_rect.color = color
     return my_rect
     
     
@@ -58,7 +59,7 @@ def draw_rectangle(canvas, rectangle):
     my_bbox = bbox(rectangle)
     
     # Now that we have the bbox, we must draw on the canvas
-    canvas.rectangle(my_bbox, outline='black', width=2, fill='green4')
+    canvas.rectangle(my_bbox, outline='black', width=2, fill=rectangle.color)
 
 def main():
     # Create World object
@@ -68,7 +69,7 @@ def main():
     canvas = create_canvas(world, 500, 500, 'white')
     #canvas = world.ca(width=500, height=500, background='white')
     # Create our rectangle
-    my_rect = create_rectangle(100, 200)
+    my_rect = create_rectangle(100, 200, 'blue')
 
     # Now that we have both our rectangle and our canvas, we must
     # draw a rectangle
