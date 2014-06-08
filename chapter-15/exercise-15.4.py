@@ -24,6 +24,12 @@ class Rectangle(object):
     attributes: width, height, corner.
     """
 
+class Circle(object):
+    """Represents a circle.
+    
+    attributes: point, radius
+    """
+
 def create_canvas(world, w, h, my_background):
     my_canvas = world.ca(width=w, height=h, background=my_background)
     return my_canvas
@@ -80,6 +86,25 @@ def draw_point(canvas, point):
     canvas.rectangle(draw_bbox, outline='black', width=2, fill=draw_point_rect.color)
 
 
+def create_circle(point, radius, fill):
+    """Create a Circle object
+    
+    arguments; point object, radius, fill
+    """
+    my_circle = Circle()
+    my_circle.fill = fill
+    my_circle.radius = radius 
+    my_circle.point = point
+    return my_circle
+
+
+def draw_circle(canvas, circle):
+    # Convert the point into a tuple
+    circle_tuple = (circle.point.x, circle.point.y)
+    print circle_tuple
+    # Draw the circle using the canvas object function
+    canvas.circle(circle_tuple, circle.radius, circle.fill)
+
 
 def main():
     # Create World object
@@ -97,6 +122,12 @@ def main():
     new_point.y = -30
     
     draw_point(canvas, new_point)
+
+    my_circle = create_circle(new_point, 5, 'green')
+    draw_circle(canvas, my_circle)
+
+    my_circle = create_circle(new_point, 30, 'red')
+    draw_circle(canvas, my_circle)
     #bbox = [[-150,-100], [150, 100]]
     #canvas.rectangle(bbox, outline='black', width=2, fill='green4')
     world.mainloop()
