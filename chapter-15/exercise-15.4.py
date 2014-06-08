@@ -61,6 +61,26 @@ def draw_rectangle(canvas, rectangle):
     # Now that we have the bbox, we must draw on the canvas
     canvas.rectangle(my_bbox, outline='black', width=2, fill=rectangle.color)
 
+def draw_point(canvas, point):
+    """Take a canvas and point object and draw representation of 
+    point on canvas.
+    """
+    
+    # Create a new rectangle based on the point, we use three as height/width
+    # since our box will include the point, as as the points surrounding it.
+    draw_point_rect = create_rectangle(3, 3, 'black')
+    # Change the rectangle's corner to be the point's coordinates
+    draw_point_rect.corner.x = point.x
+    draw_point_rect.corner.y = point.y
+    
+    # Our binding box is different, since we want filling around the point
+    
+    # Create a bbox that is *very* small
+    draw_bbox = [ [point.x + 1, point.y + 1], [point.x - 1, point.y - 1] ]
+    canvas.rectangle(draw_bbox, outline='black', width=2, fill=draw_point_rect.color)
+
+
+
 def main():
     # Create World object
     #print  sys.version_info
@@ -70,14 +90,18 @@ def main():
     #canvas = world.ca(width=500, height=500, background='white')
     # Create our rectangle
     my_rect = create_rectangle(100, 200, 'blue')
-
-    # Now that we have both our rectangle and our canvas, we must
-    # draw a rectangle
-    draw_rectangle(canvas, my_rect)
+    # Create a new Point object
+    new_point = Point()
+    # Put new point at 0,0
+    new_point.x = -30
+    new_point.y = -30
     
+    draw_point(canvas, new_point)
     #bbox = [[-150,-100], [150, 100]]
     #canvas.rectangle(bbox, outline='black', width=2, fill='green4')
     world.mainloop()
+
+
 
 
 if __name__ == '__main__':
