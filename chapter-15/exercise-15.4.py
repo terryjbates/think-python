@@ -58,11 +58,12 @@ def bbox(rectangle):
     # Return our binding box, a list of lists
     return [p1, p2]
     
-def draw_rectangle(canvas, rectangle):
+def draw_rectangle(canvas, rectangle, my_bbox=None):
     # To draw on our canvas, we need to figure out the two points that make up
     # the "binding box." We have one, since the rectangle has a corner, we must
     # figure out the other point
-    my_bbox = bbox(rectangle)
+    if not bbox:
+        my_bbox = bbox(rectangle)
     
     # Now that we have the bbox, we must draw on the canvas
     canvas.rectangle(my_bbox, outline='black', width=2, fill=rectangle.color)
@@ -83,7 +84,8 @@ def draw_point(canvas, point):
     
     # Create a bbox that is *very* small
     draw_bbox = [ [point.x + 1, point.y + 1], [point.x - 1, point.y - 1] ]
-    canvas.rectangle(draw_bbox, outline='black', width=2, fill=draw_point_rect.color)
+    draw_rectangle(canvas, draw_point_rect, draw_bbox)
+    #canvas.rectangle(draw_bbox, outline='black', width=2, fill=draw_point_rect.color)
 
 
 def create_circle(point, radius, fill):
@@ -128,6 +130,7 @@ def main():
 
     my_circle = create_circle(new_point, 30, 'red')
     draw_circle(canvas, my_circle)
+    
     #bbox = [[-150,-100], [150, 100]]
     #canvas.rectangle(bbox, outline='black', width=2, fill='green4')
     world.mainloop()
