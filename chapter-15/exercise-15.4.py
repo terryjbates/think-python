@@ -127,9 +127,9 @@ def gen_point_list(polygon):
     
     for point_object in polygon.points:
         # Create a list based on specific points_dict item
-        print point_object
+        #print point_object
         master_point_list.append([point_object.x, point_object.y])
-    print "Our master point_list is ", master_point_list
+    #print "Our master point_list is ", master_point_list
     return master_point_list
 
 def draw_polygon(canvas, polygon):
@@ -146,7 +146,7 @@ def main():
     #print  sys.version_info
     world = World()
     # Create our canvas
-    canvas = create_canvas(world, 500, 500, 'white')
+    canvas = create_canvas(world, 500, 500, 'grey')
     #canvas = world.ca(width=500, height=500, background='white')
     # Create our rectangle
     my_rect = create_rectangle(100, 200, 'blue')
@@ -159,17 +159,17 @@ def main():
     draw_point(canvas, new_point)
     
     my_circle = create_circle(new_point, 5, 'green')
-    draw_circle(canvas, my_circle)
+    #draw_circle(canvas, my_circle)
     
     my_circle = create_circle(new_point, 30, 'red')
-    draw_circle(canvas, my_circle)
+    #draw_circle(canvas, my_circle)
     
 
 
     # Polygon are made of points, so we should create a list of points
-    point_a = Point(5, 3)
-    point_b = Point(100, 3)
-    point_c = Point(5, 130)
+    point_a = Point(-100, -100)
+    point_b = Point(50, 0)
+    point_c = Point(-100, 100)
     
     my_points = (point_a, point_b, point_c)
     
@@ -187,6 +187,52 @@ def main():
     # After the polygon has all the points in question, we need a "draw_polygon"
     # function.
     draw_polygon(canvas, my_polygon)
+
+    # Polygon are made of points, so we should create a list of points
+    point_a = Point(-100, -100)
+    point_b = Point(50, 0)
+    point_c = Point(200, 0)
+    point_d = Point(200,-100)
+    my_points = (point_a, point_b, point_c, point_d)
+    
+    my_polygon = Polygon()
+    # Create an attribute that is a list
+    my_polygon.points = []
+    # Append our point objects to the Polygon object's list
+    my_polygon.points.append(point_a)
+    my_polygon.points.append(point_b)
+    my_polygon.points.append(point_c)
+    my_polygon.points.append(point_d)
+    
+    # Add fill color attribute
+    my_polygon.fill = 'red'
+    # After the polygon has all the points in question, we need a "draw_polygon"
+    # function.
+    draw_polygon(canvas, my_polygon)
+
+
+    # Polygon are made of points, so we should create a list of points
+    point_a = Point(-100, 100)
+    point_b = Point(50, 0)
+    point_c = Point(200, 0)
+    point_d = Point(200, 100)
+    my_points = (point_a, point_b, point_c, point_d)
+    
+    my_polygon = Polygon()
+    # Create an attribute that is a list
+    my_polygon.points = []
+    # Append our point objects to the Polygon object's list
+    my_polygon.points.append(point_a)
+    my_polygon.points.append(point_b)
+    my_polygon.points.append(point_c)
+    my_polygon.points.append(point_d)
+    
+    # Add fill color attribute
+    my_polygon.fill = 'white'
+    # After the polygon has all the points in question, we need a "draw_polygon"
+    # function.
+    draw_polygon(canvas, my_polygon)
+
 
     world.mainloop()
 
