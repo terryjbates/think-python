@@ -16,7 +16,11 @@ from swampy.World import World
 
 class Point(object):
     """Represent point in 2-D space"""
-
+    def __init__(self, x=None, y=None):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return '{0}, {1}'.format(self.x, self.y)
 
 class Rectangle(object):
     """Represents a rectangle.
@@ -30,12 +34,17 @@ class Circle(object):
     attributes: point, radius
     """
 
+class Polygon(object):
+    """Represent a polygon. 
+    
+    attributes: a list of point objects
+    """
+
 def create_canvas(world, w, h, my_background):
     my_canvas = world.ca(width=w, height=h, background=my_background)
     return my_canvas
     
-#def draw_rectangle(canvas, rectangle):
-    # 
+
 def create_rectangle(height, width, color):
     my_rect = Rectangle()
     my_rect.width = height
@@ -103,10 +112,34 @@ def create_circle(point, radius, fill):
 def draw_circle(canvas, circle):
     # Convert the point into a tuple
     circle_tuple = (circle.point.x, circle.point.y)
-    print circle_tuple
+    #print circle_tuple
     # Draw the circle using the canvas object function
     canvas.circle(circle_tuple, circle.radius, circle.fill)
 
+
+def gen_point_list(polygon):
+    # Create a list of lists based on points in a Polygon object.
+    master_point_list = []
+    # vars(polygon) is a dictionary with keys being point names
+    # and the values being point objects
+    # points_list = polygon.points
+    # print "Our points list is ", points_list
+    
+    for point_object in polygon.points:
+        # Create a list based on specific points_dict item
+        print point_object
+        master_point_list.append([point_object.x, point_object.y])
+    print "Our master point_list is ", master_point_list
+    return master_point_list
+
+def draw_polygon(canvas, polygon):
+    """Draw a specified polygon object on the canvas."""
+
+    # The polygon object has points, we need to make those points a list.
+    points_list = gen_point_list(polygon)
+    
+    # Now that we have the points_list, we can draw the polygon
+    canvas.polygon(points_list, fill=polygon.fill)
 
 def main():
     # Create World object
@@ -124,15 +157,37 @@ def main():
     new_point.y = -30
     
     draw_point(canvas, new_point)
-
+    
     my_circle = create_circle(new_point, 5, 'green')
     draw_circle(canvas, my_circle)
-
+    
     my_circle = create_circle(new_point, 30, 'red')
     draw_circle(canvas, my_circle)
     
-    #bbox = [[-150,-100], [150, 100]]
-    #canvas.rectangle(bbox, outline='black', width=2, fill='green4')
+
+
+    # Polygon are made of points, so we should create a list of points
+    point_a = Point(5, 3)
+    point_b = Point(100, 3)
+    point_c = Point(5, 130)
+    
+    my_points = (point_a, point_b, point_c)
+    
+    my_polygon = Polygon()
+    # Create an attribute that is a list
+    my_polygon.points = []
+    # Append our point objects to the Polygon object's list
+    my_polygon.points.append(point_a)
+    my_polygon.points.append(point_b)
+    my_polygon.points.append(point_c)
+    
+    # Add fill color attribute
+    my_polygon.fill = 'blue'    
+    
+    # After the polygon has all the points in question, we need a "draw_polygon"
+    # function.
+    draw_polygon(canvas, my_polygon)
+
     world.mainloop()
 
 
