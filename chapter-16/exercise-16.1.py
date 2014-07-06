@@ -25,7 +25,6 @@ def print_time(time_obj):
     
 def main():
     my_time = Time()
-    my_time = Time()
     my_time.hour = 11
     my_time.minute = 59
     my_time.second = 30
