@@ -23,9 +23,9 @@ class Time(object):
         self.second = second
 
 
-    def print_time(self):
+    def __str__(self):
         # Use join to quickly print out string colon separated
-        print ':'.join([str(self.hour).zfill(2), str(self.minute).zfill(2), str(self.second).zfill(2)])
+        return ':'.join([str(self.hour).zfill(2), str(self.minute).zfill(2), str(self.second).zfill(2)])
 
 
     def time_to_int(self):
@@ -91,20 +91,17 @@ def main():
     print t1.is_after(t2)
     
     print "t1:Before increment"
-    t1.print_time()
+    print t1
     print 
     print "Printing pure function increment value"
     t1.increment(600)
     print
     print "t1:After increment"
-    Time.print_time(t1)
+    print t1
     print "Time / distance foolishness"
-    t3 = Time()
-    t3.hour = 5
-    t3.minute = 13
-    t3.second = 30
+    t3 = Time(5, 13, 30)
     distance = 5
-    Time.print_time(time_per_mile(t3, distance))
+    print (time_per_mile(t3, distance))
 
 
 if __name__ == '__main__':
