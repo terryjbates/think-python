@@ -84,14 +84,6 @@ class Hand(Deck):
         self.cards = []
         self.label = label
 
-    def __str__(self):
-        # Or use a list comprehension
-        # res = [str(card) for card in self.cards]
-        res=[]
-        for card in self.cards:
-            res.append(str(card))
-        return '\n'.join(res)
-
 
 def main():
     # Create new deck
@@ -105,5 +97,5 @@ def main():
     hot_deck.deal_hands(4, 7)
 
 
-if __name__ == "__main__"():
+if __name__ == "__main__":
     main()
