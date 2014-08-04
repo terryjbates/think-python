@@ -9,7 +9,9 @@ Copyright (c) 2014 http://the-awesome-python-blog.posterous.com. All rights rese
 
 import sys
 import os
+import random
 
+WORD_LIST = '/Users/tbates/python/Think-Python/think-python/words.txt'
 
 class Card(object):
     suit_names = ['Clubs', 'Diamonds', 'Hearts', 'Spades']
@@ -51,6 +53,9 @@ class Deck(object):
     def shuffle(self):
         random.shuffle(self.cards)
 
+    def pop_card(self):
+        return self.cards.pop()
+
     def add_card(self, card):
         self.cards.append(card)
 
@@ -58,10 +63,51 @@ class Deck(object):
         # Method to have deck sort itself.
         self.cards.sort(cmp=Card.__cmp__)
 
+    def move_cards(self, hand, num):
+        for i in range(num):
+            hand.add_card(self.pop_card())
+
+    def deal_hands(self, num_of_hands, cards_per_hand):
+        for hand_count in range(num_of_hands):
+            # Create hand and label based on index
+            hand_name = 'hand_num' + str(hand_count)
+            hand = Hand(hand_name)
+            print
+            print "Created hand called", hand_name
+            for card_count in range(cards_per_hand):
+                # Pop cards into hand from the deck
+                hand.add_card(self.pop_card())
+            print "Hand has cards"
+            print hand
+            print "#" * 30
+
+class Hand(Deck):
+    def __init__(self, label=''):
+        self.cards = []
+        self.label = label
+
+    # def __str__(self):
+    #     # Or use a list comprehension
+    #     # res = [str(card) for card in self.cards]
+    #     res=[]
+    #     for card in self.cards:
+    #         res.append(str(card))
+    #     return '\n'.join(res)
 
 
 def main():
-	pass
+    # Create new deck
+    print "Creating hot_deck"
+    hot_deck = Deck()
+    # Shuffle the shit out of it
+    for i in xrange(100):
+        hot_deck.shuffle()
+    print "Deck is ", hot_deck
+    #print hot_deck
+    # Create four hands with 7 cards each
+    print "Dealing hands"
+    hot_deck.deal_hands(4, 7)
+	#pass
 
 
 if __name__ == '__main__':
