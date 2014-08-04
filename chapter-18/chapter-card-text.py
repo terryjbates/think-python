@@ -33,11 +33,12 @@ class Deck(object):
     # Alternative with nasty list comprehension
     # self.cards = [Card(suit,rank) for suit in range(4)
     #         for rank in range(1, 14)]
-    self.cards = []
-    for suit in range(4):
-        for rank in range(1, 14):
-            card = Card(suit, rank)
-            self.cards.append(card)
+    def __init__(self):
+        self.cards = []
+        for suit in range(4):
+            for rank in range(1, 14):
+                card = Card(suit, rank)
+                self.cards.append(card)
 
     def __str__(self):
         # Or use a list comprehension
@@ -46,6 +47,17 @@ class Deck(object):
         for card in self.cards:
             res.append(str(card))
         return '\n'.join(res)
+
+    def shuffle(self):
+        random.shuffle(self.cards)
+
+    def add_card(self, card):
+        self.cards.append(card)
+
+    def sort(self):
+        # Method to have deck sort itself.
+        self.cards.sort(cmp=Card.__cmp__)
+
 
 
 def main():
