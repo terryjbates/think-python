@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """This module contains code from
 Think Python by Allen B. Downey
 http://thinkpython.com
@@ -24,10 +26,13 @@ def process_file(filename, order=2):
 
     Returns: map from prefix to list of possible suffixes.
     """
+    print "Entered process_file"
     fp = open(filename)
-    skip_gutenberg_header(fp)
-
+    #print "Skipping gutenburg header"
+    #skip_gutenberg_header(fp)
+    #print "Skipped gutenburg header"
     for line in fp:
+        #print "line is", line
         for word in line.rstrip().split():
             process_word(word, order)
 
@@ -51,12 +56,15 @@ def process_word(word, order=2):
     During the first few iterations, all we do is store up the words;
     after that we start adding entries to the dictionary.
     """
+    #print "processing word", word
     global prefix
     if len(prefix) < order:
         prefix += (word,)
+        print "prefix: ", prefix
         return
 
     try:
+        print "we append %s word to %s prefix" % (word, prefix)
         suffix_map[prefix].append(word)
     except KeyError:
         # if there is no entry for this prefix, make one
@@ -101,13 +109,19 @@ def shift(t, word):
 
 
 def main(name, filename='', n=100, order=2, *args):
+    print "Filename is ", filename
+    print "n is", n
+
     try:
         n = int(n)
         order = int(order)
     except:
         print 'Usage: randomtext.py filename [# of words] [prefix length]'
     else:
+        print "Processing file"
         process_file(filename, order)
+        print "We have suffix map of length", len(suffix_map)
+        print "Using random text with %s", n
         random_text(n)
 
 
