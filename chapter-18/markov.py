@@ -13,12 +13,71 @@ import sys
 import string
 import random
 
-# global variables
-suffix_map = {}        # map from prefixes to a list of suffixes
-prefix = ()            # current tuple of words
+
+class Markov(object):
+
+    def __init__(self, order=2, n=100):
+
+        # Data structures to capture data
+        self.suffix_map = {}
+        self.prefix = ()
+
+        # Order of words captured for prefix
+        self.order = int(order)
+        # Number of random words to generate
+        self.n = int(n)
+
+    def process_word(self, word):
+        """Processes each word.
+
+        word: string
+        order: integer
+
+        During the first few iterations, all we do is store up the words;
+        after that we start adding entries to the dictionary.
+        """
+        #print "processing word", word
+
+        if len(self.prefix) < self.order:
+            self.prefix += (word,)
+            print "self.prefix: ", self.prefix
+            return
+
+        try:
+            #print "we append %s word to %s self.prefix" % (word, self.prefix)
+            self.suffix_map[self.prefix].append(word)
+        except KeyError:
+            # if there is no entry for this self.prefix, make one
+            self.suffix_map[self.prefix] = [word]
+
+        self.prefix = shift(self.prefix, word)
+
+    def random_text(self):
+        """Generates random wordsfrom the analyzed text.
+
+        Starts with a random prefix from the dictionary.
+
+        self.n: number of words to generate
+        """
+        # choose a random prefix (not weighted by frequency)
+        start = random.choice(self.suffix_map.keys())
+
+        for i in range(self.n):
+            suffixes = self.suffix_map.get(start, None)
+            if suffixes == None:
+                # if the start isn't in map, we got to the end of the
+                # original text, so we have to start again.
+                self.n = self.n - 1
+                self.random_text()
+                return
+
+            # choose a random suffix
+            word = random.choice(suffixes)
+            print word,
+            start = shift(start, word)
 
 
-def process_file(filename, order=2):
+def process_file(filename, markov_obj):
     """Reads a file and performs Markov analysis.
 
     filename: string
@@ -34,7 +93,7 @@ def process_file(filename, order=2):
     for line in fp:
         #print "line is", line
         for word in line.rstrip().split():
-            process_word(word, order)
+            markov_obj.process_word(word)
 
 
 def skip_gutenberg_header(fp):
@@ -45,56 +104,6 @@ def skip_gutenberg_header(fp):
     for line in fp:
         if line.startswith('*END*THE SMALL PRINT!'):
             break
-
-
-def process_word(word, order=2):
-    """Processes each word.
-
-    word: string
-    order: integer
-
-    During the first few iterations, all we do is store up the words;
-    after that we start adding entries to the dictionary.
-    """
-    #print "processing word", word
-    global prefix
-    if len(prefix) < order:
-        prefix += (word,)
-        print "prefix: ", prefix
-        return
-
-    try:
-        print "we append %s word to %s prefix" % (word, prefix)
-        suffix_map[prefix].append(word)
-    except KeyError:
-        # if there is no entry for this prefix, make one
-        suffix_map[prefix] = [word]
-
-    prefix = shift(prefix, word)
-
-
-def random_text(n=100):
-    """Generates random wordsfrom the analyzed text.
-
-    Starts with a random prefix from the dictionary.
-
-    n: number of words to generate
-    """
-    # choose a random prefix (not weighted by frequency)
-    start = random.choice(suffix_map.keys())
-
-    for i in range(n):
-        suffixes = suffix_map.get(start, None)
-        if suffixes == None:
-            # if the start isn't in map, we got to the end of the
-            # original text, so we have to start again.
-            random_text(n-i)
-            return
-
-        # choose a random suffix
-        word = random.choice(suffixes)
-        print word,
-        start = shift(start, word)
 
 
 def shift(t, word):
@@ -118,11 +127,12 @@ def main(name, filename='', n=100, order=2, *args):
     except:
         print 'Usage: randomtext.py filename [# of words] [prefix length]'
     else:
+        markov_obj = Markov(order, n)
         print "Processing file"
-        process_file(filename, order)
-        print "We have suffix map of length", len(suffix_map)
-        print "Using random text with %s", n
-        random_text(n)
+        process_file(filename, markov_obj)
+        print "We have suffix map of length", len(markov_obj.suffix_map)
+        print "Using random text with %s", markov_obj.n
+        markov_obj.random_text()
 
 
 if __name__ == '__main__':
