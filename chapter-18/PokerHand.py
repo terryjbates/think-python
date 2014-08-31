@@ -60,6 +60,14 @@ class PokerHand(Hand):
                 #print "Found a pair"
         return False
 
+    def has_three_of_a_kind(self):
+        self.suit_hist()
+        for val in self.suits.values():
+            if val == 3:
+                return True
+        return False
+
+
 if __name__ == '__main__':
     # make a deck
     deck = Deck()
@@ -75,4 +83,5 @@ if __name__ == '__main__':
         print "Hand has flush", hand.has_flush()
         print "Hand has pair", hand.has_pair()
         print "Has has at least two pair", hand.has_twopair()
+        print "Hand has 3 of a kind", hand.has_three_of_a_kind()
         print "#" * 40
