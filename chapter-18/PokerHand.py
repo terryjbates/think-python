@@ -39,12 +39,26 @@ class PokerHand(Hand):
 
     def has_pair(self):
         self.rank_hist()
-        for val in self.ranks:
-            if val > 2:
+        for rank, count in self.ranks.items():
+            #print
+            #print "rank is ", rank
+            #print "count is", count
+            if count > 1:
+                #print "BIG count is ", count
                 return True
         return False
 
-
+    def has_twopair(self):
+        self.rank_hist()
+        pair_count = 0
+        for count in self.ranks.values():
+            #print "count in has_two", count
+            if pair_count >1:
+                return True
+            if count > 1:
+                pair_count += 1
+                #print "Found a pair"
+        return False
 
 if __name__ == '__main__':
     # make a deck
@@ -57,6 +71,8 @@ if __name__ == '__main__':
         deck.move_cards(hand, 7)
         hand.sort()
         print hand
+        print
         print "Hand has flush", hand.has_flush()
         print "Hand has pair", hand.has_pair()
-        print
+        print "Has has at least two pair", hand.has_twopair()
+        print "#" * 40
