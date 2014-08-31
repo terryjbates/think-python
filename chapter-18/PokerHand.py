@@ -32,6 +32,19 @@ class PokerHand(Hand):
                 return True
         return False
 
+    def rank_hist(self):
+        self.ranks = {}
+        for card in self.cards:
+            self.ranks[card.rank] = self.ranks.get(card.rank, 0) + 1
+
+    def has_pair(self):
+        self.rank_hist()
+        for val in self.ranks:
+            if val > 2:
+                return True
+        return False
+
+
 
 if __name__ == '__main__':
     # make a deck
@@ -44,5 +57,6 @@ if __name__ == '__main__':
         deck.move_cards(hand, 7)
         hand.sort()
         print hand
-        print hand.has_flush()
-        print ''
+        print "Hand has flush", hand.has_flush()
+        print "Hand has pair", hand.has_pair()
+        print
