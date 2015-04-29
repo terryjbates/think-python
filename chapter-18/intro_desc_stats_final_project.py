@@ -45,7 +45,7 @@ class Deck(object):
     def __str__(self):
         # Or use a list comprehension
         # res = [str(card) for card in self.cards]
-        res=[]
+        res = []
         for card in self.cards:
             res.append(str(card))
         return '\n'.join(res)
@@ -85,6 +85,7 @@ class Deck(object):
             for card_count in range(cards_per_hand):
                 # Pop cards into hand from the deck
                 hand.add_card(self.pop_card())
+                pass
             #print "Hand has cards"
             #print hand
             print "Hand Sum", hand.hand_value()
@@ -112,7 +113,7 @@ class Histogram(object):
 
     def add_hand(self, hand):
         hand_dict = hand.count_card_freq()
-        pprint.pprint(hand_dict)
+        #pprint.pprint(hand_dict)
         for rank, count in hand_dict.items():
             self.count_dict[rank] = self.count_dict.setdefault(rank, 0) + count
 
@@ -135,7 +136,9 @@ def main():
     hot_deck = Deck()
     shuffle_deck(hot_deck)
     hot_deck.deal_hands(13, 3, card_hist)
-
+    #pprint.pprint(card_hist.count_dict)
+    for rank, count in card_hist.count_dict.items():
+        print "{}\t{}".format(rank, count)
 
 
 if __name__ == "__main__":
