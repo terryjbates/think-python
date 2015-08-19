@@ -1,0 +1,27 @@
+# Exercise 1-2 
+Go to python.org. Read info about Python, see links to Python-related pages, search Python doc.
+
+* Did you complete this exercise?
+* What information did you find about Python that you did not know before you visited?
+* What topics did you search for, if any?
+
+# Exercise 1-3
+Start the Python interpreter and type help() to start utility. *Or* type help('print') to get
+info about the print statement. This _should_ work.
+
+* Use iPython rather than normal interpreter. You will thank me later.
+* Some sample 'help' searches
+
+1. help> help
+2. help> import 
+3. help> class
+4. help> dict
+
+* help('print')
+
+1. Notice different format of arguments to this function. (python3)
+2. Python2: print is a statement. Evaluates the object, and prints to standard output. If not a string, it will convert to a string. Later on, when you create objects, you have the ability to alter what is output when you print the object. 
+
+# Exercise 1-4
+* Use iPython as a calculator
+* Notice that unless you make numbers floating point, they truncate to integers
