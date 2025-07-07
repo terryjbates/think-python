@@ -8,55 +8,34 @@ Software Design"
 
 Created by Terry Bates on 2012-07-15.
 Copyright (c) 2012 http://the-awesome-python-blog.posterous.com.
-All rights reserved."""
+All rights reserved.
 
+Cut down on some lines
+Ciprian Saramet on 2019-11-22
 
-def print_twice(my_string):
-    print my_string
-    print my_string
-
+"""
+def do_four(f):
+    do_twice(f)
+    do_twice(f)
 
 def do_twice(f):
     f()
     f()
 
-
-def do_four(f):
-    do_twice(f)
-    do_twice(f)
-
-
 def print_beam():
-    print '+ - - - -',
+    print('+ - - - -', end="")
 
+def print_pillar():
+    print('|        |        |', end="\n")
 
-def print_post():
-    print'|        ',
-
-
-def print_beams():
+def tier():
     do_twice(print_beam)
-    print '+'
-
-
-def print_posts():
-    do_twice(print_post)
-    print '|'
-
-
-def print_row():
-    print_beams()
-    do_four(print_posts)
-
-
-def print_grid():
-    do_twice(print_row)
-
+    print('+')
+    do_four(print_pillar)
 
 def main():
-    print_grid()
-    print_beams()
-
-
+    do_twice(tier)
+    do_twice(print_beam)
+    print('+')
 if __name__ == '__main__':
     main()
